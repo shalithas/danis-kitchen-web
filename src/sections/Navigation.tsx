@@ -60,7 +60,7 @@ export default function Navigation() {
           className="font-display text-lg md:text-2xl font-bold uppercase tracking-widest text-text-yellow"
           style={{ letterSpacing: '0.15em' }}
         >
-          Side Hustle
+          Dani's Kitchen
         </button>
 
         {/* Right nav */}

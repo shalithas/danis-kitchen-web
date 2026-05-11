@@ -186,7 +186,7 @@ export default function Location() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Side Hustle Locations"
+            title="Dani's Kitchen Locations"
           />
         </div>
       </div>

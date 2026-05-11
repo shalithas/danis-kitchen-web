@@ -50,7 +50,7 @@ export default function Footer() {
             letterSpacing: '0.05em',
           }}
         >
-          SIDE HUSTLE &mdash; SIDE HUSTLE &mdash; SIDE HUSTLE &mdash;
+          DANI'S KITCHEN &mdash; DANI'S KITCHEN &mdash; DANI'S KITCHEN &mdash;
         </div>
       </div>
 
@@ -62,10 +62,10 @@ export default function Footer() {
               className="font-display font-bold uppercase text-text-yellow mb-4"
               style={{ letterSpacing: '0.15em', fontSize: '1.5rem' }}
             >
-              Side Hustle
+              Dani's Kitchen
             </h3>
             <p className="text-offwhite/50 text-sm leading-relaxed mb-6">
-              Fresh breakfast tacos, served from our truck to your hands.
+              Fresh coffee and artisanal baked goods, served from our truck to your hands.
               Austin-born, flavor-obsessed.
             </p>
           </div>
@@ -110,11 +110,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:hello@sidehustletacos.com"
+                  href="mailto:hello@daniskitchen.com"
                   className="flex items-center gap-2 text-offwhite/60 hover:text-text-yellow transition-colors duration-200 text-sm"
                 >
                   <Mail className="w-4 h-4" />
-                  hello@sidehustletacos.com
+                  hello@daniskitchen.com
                 </a>
               </li>
             </ul>
@@ -123,7 +123,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="font-display text-xs uppercase tracking-widest text-offwhite/40 mb-4">
-              Follow the Hustle
+              Follow Dani
             </h4>
             <div className="flex items-center gap-4">
               <a
@@ -155,7 +155,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="mt-4 font-accent text-text-yellow text-sm">
-              #SideHustleTacos
+              #DanisKitchen
             </p>
           </div>
         </div>
@@ -191,7 +191,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid #f6ee0010' }}>
           <p className="text-offwhite/30 text-xs">
-            &copy; {new Date().getFullYear()} Side Hustle Tacos. All rights reserved.
+            &copy; {new Date().getFullYear()} Dani's Kitchen. All rights reserved.
           </p>
           <p className="text-offwhite/30 text-xs">
             Austin, Texas
