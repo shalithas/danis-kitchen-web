@@ -2,21 +2,12 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MapPin, Clock } from 'lucide-react';
+import content from '../lib/content';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SCHEDULE = [
-  { day: 'Monday', time: '7:00 AM - 2:00 PM', location: 'Rainey Street (near Craft Pride)', address: '61 Rainey St, Austin, TX 78701' },
-  { day: 'Tuesday', time: '7:00 AM - 2:00 PM', location: 'South Congress (near Jo\'s Coffee)', address: '1300 S Congress Ave, Austin, TX 78704' },
-  { day: 'Wednesday', time: '7:00 AM - 2:00 PM', location: 'East 6th Street (near Whisler\'s)', address: '1816 E 6th St, Austin, TX 78702' },
-  { day: 'Thursday', time: '7:00 AM - 2:00 PM', location: 'Barton Springs (near Zilker Park)', address: '2100 Barton Springs Rd, Austin, TX 78704' },
-  { day: 'Friday', time: '7:00 AM - 3:00 PM', location: 'Rainey Street (Weekend Special)', address: '61 Rainey St, Austin, TX 78701' },
-  { day: 'Saturday', time: '8:00 AM - 3:00 PM', location: 'Farmers Market at Mueller', address: '4209 Airport Blvd, Austin, TX 78722' },
-  { day: 'Sunday', time: 'CLOSED', location: 'Family Day', address: '' },
-];
-
 export default function Location() {
-  const showLocation = false; // TODO: Make this authorable (show/hide) from a CMS or config
+  const showLocation = content.settings.showLocation;
 
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -71,7 +62,7 @@ export default function Location() {
   }, []);
 
   const today = new Date().getDay();
-  const todaySchedule = SCHEDULE[today === 0 ? 6 : today - 1];
+  const todaySchedule = content.location.schedule[today === 0 ? 6 : today - 1];
 
   if (!showLocation) return null;
 
@@ -93,7 +84,7 @@ export default function Location() {
             lineHeight: 1.1,
           }}
         >
-          Join the Hustle
+          {content.location.title}
         </h2>
 
         {/* Today's location highlight */}
@@ -107,7 +98,7 @@ export default function Location() {
         >
           <div className="flex items-center gap-3 mb-4">
             <span className="font-display text-xs uppercase tracking-widest text-text-yellow">
-              Today&apos;s Location
+              {content.location.todayLabel}
             </span>
             <div className="w-2 h-2 rounded-full bg-primary-red animate-pulse" />
           </div>
@@ -150,7 +141,7 @@ export default function Location() {
           </div>
 
           {/* Rows */}
-          {SCHEDULE.map((item, i) => (
+          {content.location.schedule.map((item, i) => (
             <div
               key={item.day}
               ref={(el) => { rowsRef.current[i] = el; }}
@@ -179,7 +170,7 @@ export default function Location() {
         {/* Map embed placeholder */}
         <div className="mt-16 overflow-hidden" style={{ height: '400px', backgroundColor: '#e8e7e3' }}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220448.684064075!2d-97.8934853392578!3d30.30798271068981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1699900000000!5m2!1sen!2sus"
+            src={content.location.mapUrl}
             width="100%"
             height="100%"
             style={{ border: 0, filter: 'grayscale(100%) contrast(1.2)' }}

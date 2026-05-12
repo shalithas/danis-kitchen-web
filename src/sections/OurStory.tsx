@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import content from '../lib/content';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,37 +68,38 @@ export default function OurStory() {
     >
       <div className="max-w-7xl mx-auto">
         <h2
+          ref={headingRef}
           className="font-serif text-text-yellow mb-16 md:mb-24"
           style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 1.1 }}
         >
-          Our Story
+          {content.ourStory.title}
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
           <div className="space-y-8">
-            <p
-              ref={(el) => { textRefs.current[0] = el; }}
-              className="text-offwhite/80 text-lg leading-relaxed"
-            >
-              Dani has always been a talented chef with a profound love for baking. Her journey began in small home kitchens, crafting the perfect croissants and experimenting with flavor combinations that would bring joy to her friends and family.
-            </p>
-            <p
-              ref={(el) => { textRefs.current[1] = el; }}
-              className="text-offwhite/80 text-lg leading-relaxed"
-            >
-              The food truck idea has been her dream for some time. She wanted to take her passion on the road, creating a cozy space where people could grab an expertly brewed coffee and a freshly baked treat to start their day right.
-            </p>
+            {content.ourStory.paragraphs.slice(0, 2).map((paragraph, i) => (
+              <p
+                key={i}
+                ref={(el) => { textRefs.current[i] = el; }}
+                className="text-offwhite/80 text-lg leading-relaxed"
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
 
           <div className="space-y-8">
-            <p
-              ref={(el) => { textRefs.current[3] = el; }}
-              className="text-offwhite/80 text-lg leading-relaxed"
-            >
-              Today, Dani's Kitchen is a reality. We serve an array of freshly baked goods, hearty toasties, and specialty coffee. Every item is made with the same love and attention to detail that Dani pours into all her creations.
-            </p>
+            {content.ourStory.paragraphs.slice(2).map((paragraph, i) => (
+              <p
+                key={i + 2}
+                ref={(el) => { textRefs.current[i + 2] = el; }}
+                className="text-offwhite/80 text-lg leading-relaxed"
+              >
+                {paragraph}
+              </p>
+            ))}
             <div className="flex items-center gap-4 pt-4">
-              <span className="font-accent text-text-yellow text-2xl">Dani's Kitchen</span>
+              <span className="font-accent text-text-yellow text-2xl">{content.brand.name}</span>
             </div>
           </div>
         </div>

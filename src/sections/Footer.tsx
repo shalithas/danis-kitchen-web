@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Instagram, Twitter, Facebook, Mail, Phone } from 'lucide-react';
+import content from '../lib/content';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,7 +51,7 @@ export default function Footer() {
             letterSpacing: '0.05em',
           }}
         >
-          DANI'S KITCHEN &mdash; DANI'S KITCHEN &mdash; DANI'S KITCHEN &mdash;
+          {content.footer.repeatingText} &mdash; {content.footer.repeatingText} &mdash; {content.footer.repeatingText} &mdash;
         </div>
       </div>
 
@@ -62,11 +63,10 @@ export default function Footer() {
               className="font-display font-bold uppercase text-text-yellow mb-4"
               style={{ letterSpacing: '0.15em', fontSize: '1.5rem' }}
             >
-              Dani's Kitchen
+              {content.brand.name}
             </h3>
             <p className="text-offwhite/50 text-sm leading-relaxed mb-6">
-              Fresh coffee and artisanal baked goods, served from our truck to your hands.
-              Austin-born, flavor-obsessed.
+              {content.brand.description}
             </p>
           </div>
 
@@ -76,7 +76,7 @@ export default function Footer() {
               Navigate
             </h4>
             <ul className="space-y-3">
-              {['About', 'Menu', 'Locations', 'Order Online', 'Catering'].map((link) => (
+              {content.footer.quickLinks.map((link) => (
                 <li key={link}>
                   <button
                     onClick={() => {
@@ -101,20 +101,20 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="tel:+15125551234"
+                  href={`tel:${content.footer.contact.phone.replace(/\D/g, '')}`}
                   className="flex items-center gap-2 text-offwhite/60 hover:text-text-yellow transition-colors duration-200 text-sm"
                 >
                   <Phone className="w-4 h-4" />
-                  (512) 555-1234
+                  {content.footer.contact.phone}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:hello@daniskitchen.com"
+                  href={`mailto:${content.footer.contact.email}`}
                   className="flex items-center gap-2 text-offwhite/60 hover:text-text-yellow transition-colors duration-200 text-sm"
                 >
                   <Mail className="w-4 h-4" />
-                  hello@daniskitchen.com
+                  {content.footer.contact.email}
                 </a>
               </li>
             </ul>
@@ -123,7 +123,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="font-display text-xs uppercase tracking-widest text-offwhite/40 mb-4">
-              Follow Dani
+              {content.footer.social.label}
             </h4>
             <div className="flex items-center gap-4">
               <a
@@ -155,7 +155,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="mt-4 font-accent text-text-yellow text-sm">
-              #DanisKitchen
+              {content.footer.social.hashtag}
             </p>
           </div>
         </div>
@@ -165,10 +165,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <h4 className="font-display font-semibold text-offwhite uppercase tracking-wide text-sm mb-1">
-                Get the Weekly Schedule
+                {content.footer.newsletter.title}
               </h4>
               <p className="text-offwhite/40 text-sm">
-                Know where we are before everyone else does.
+                {content.footer.newsletter.description}
               </p>
             </div>
             <form
@@ -177,12 +177,12 @@ export default function Footer() {
             >
               <input
                 type="email"
-                placeholder="your@email.com"
+                placeholder={content.footer.newsletter.placeholder}
                 className="px-4 py-3 bg-transparent text-offwhite font-body text-sm focus:outline-none focus:ring-1 focus:ring-text-yellow flex-1 md:w-64"
                 style={{ border: '1px solid #f6ee0030' }}
               />
               <button type="submit" className="btn-pill btn-yellow text-xs whitespace-nowrap">
-                Subscribe
+                {content.footer.newsletter.buttonText}
               </button>
             </form>
           </div>
@@ -191,10 +191,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid #f6ee0010' }}>
           <p className="text-offwhite/30 text-xs">
-            &copy; {new Date().getFullYear()} Dani's Kitchen. All rights reserved.
+            &copy; {new Date().getFullYear()} {content.brand.name}. All rights reserved.
           </p>
           <p className="text-offwhite/30 text-xs">
-            Austin, Texas
+            {content.footer.copyright}
           </p>
         </div>
       </div>

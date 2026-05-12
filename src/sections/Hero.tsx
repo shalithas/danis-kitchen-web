@@ -1,4 +1,5 @@
 import { ChevronDown } from 'lucide-react';
+import content from '../lib/content';
 
 export default function Hero() {
   const scrollDown = () => {
@@ -27,15 +28,15 @@ export default function Hero() {
             textShadow: '0 4px 30px rgba(0,0,0,0.1)',
           }}
         >
-          Dani's
+          {content.brand.name.split(' ')[0]}
           <br />
-          <span className="text-text-yellow">Kitchen</span>
+          <span className="text-text-yellow">{content.brand.name.split(' ')[1]}</span>
         </h1>
         <p
           className="mt-6 font-accent text-offwhite/80 text-lg md:text-xl"
           style={{ textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}
         >
-          Coffee • Croissants • Toasties • Cookies
+          {content.brand.tagline}
         </p>
       </div>
 
@@ -44,7 +45,7 @@ export default function Hero() {
         onClick={scrollDown}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-chevron"
         style={{ pointerEvents: 'auto', zIndex: 20 }}
-        aria-label="Scroll down"
+        aria-label={content.hero.scrollLabel}
       >
         <ChevronDown className="w-8 h-8 text-text-yellow" />
       </button>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import content from '../lib/content';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,24 +35,15 @@ export default function Navigation() {
       <div className="flex items-center justify-between px-6 md:px-12 py-4">
         {/* Left nav */}
         <div className="hidden md:flex items-center gap-6">
-          <button
-            onClick={() => scrollTo('story')}
-            className="font-display text-xs uppercase tracking-widest text-offwhite/70 hover:text-text-yellow transition-colors duration-200"
-          >
-            About
-          </button>
-          <button
-            onClick={() => scrollTo('menu')}
-            className="font-display text-xs uppercase tracking-widest text-offwhite/70 hover:text-text-yellow transition-colors duration-200"
-          >
-            Menu
-          </button>
-          <button
-            onClick={() => scrollTo('location')}
-            className="font-display text-xs uppercase tracking-widest text-offwhite/70 hover:text-text-yellow transition-colors duration-200"
-          >
-            Location
-          </button>
+          {content.navigation.links.slice(0, 3).map((link) => (
+            <button
+              key={link}
+              onClick={() => scrollTo(link.toLowerCase().replace(/\s+/g, '-'))}
+              className="font-display text-xs uppercase tracking-widest text-offwhite/70 hover:text-text-yellow transition-colors duration-200"
+            >
+              {link}
+            </button>
+          ))}
         </div>
 
         {/* Center logo */}
@@ -60,28 +52,25 @@ export default function Navigation() {
           className="font-display text-lg md:text-2xl font-bold uppercase tracking-widest text-text-yellow"
           style={{ letterSpacing: '0.15em' }}
         >
-          Dani's Kitchen
+          {content.brand.name}
         </button>
 
         {/* Right nav */}
         <div className="hidden md:flex items-center gap-6">
-          <button
-            onClick={() => scrollTo('contact')}
-            className="font-display text-xs uppercase tracking-widest text-offwhite/70 hover:text-text-yellow transition-colors duration-200"
-          >
-            Contact
-          </button>
-          <button
-            onClick={() => scrollTo('catering')}
-            className="font-display text-xs uppercase tracking-widest text-offwhite/70 hover:text-text-yellow transition-colors duration-200"
-          >
-            Catering
-          </button>
+          {content.navigation.links.slice(3).map((link) => (
+            <button
+              key={link}
+              onClick={() => scrollTo(link.toLowerCase().replace(/\s+/g, '-').replace('order-online', 'menu'))}
+              className="font-display text-xs uppercase tracking-widest text-offwhite/70 hover:text-text-yellow transition-colors duration-200"
+            >
+              {link}
+            </button>
+          ))}
           <button
             onClick={() => scrollTo('menu')}
             className="btn-pill btn-yellow text-xs"
           >
-            Order Now
+            {content.navigation.buttons.orderNow}
           </button>
         </div>
 
@@ -90,7 +79,7 @@ export default function Navigation() {
           onClick={() => scrollTo('menu')}
           className="md:hidden btn-pill btn-yellow text-xs px-4 py-2"
         >
-          Order
+          {content.navigation.buttons.order}
         </button>
       </div>
     </nav>

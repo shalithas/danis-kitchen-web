@@ -1,39 +1,13 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import content from '../lib/content';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MENU_CATEGORIES = [
-  {
-    title: 'FOOD',
-    items: [
-      { name: 'Croissant', desc: 'Almond, Chocolate, or Plain', price: '$4.50', tag: 'FRESH BAKED' },
-      { name: 'Toasties', desc: 'Ham and cheese', price: '$6.50', tag: null },
-      { name: 'Banana Bread', desc: 'Warm slice of homemade banana bread', price: '$4.00', tag: null },
-      { name: 'Signature Cookies', desc: 'Choc chip, Almond bliss, Velvet crave, Midnight double chocolate', price: '$3.50', tag: 'SWEET' },
-    ],
-  },
-  {
-    title: 'COFFEE',
-    items: [
-      { name: 'Espresso / Long Black', desc: 'A double shot of our specialty blend', price: '$3.50', tag: null },
-      { name: 'Flat White / Cappuccino', desc: 'Perfectly textured milk with espresso', price: '$4.50', tag: 'POPULAR' },
-      { name: 'Latte / Mocha', desc: 'Smooth, creamy, and balanced', price: '$4.50', tag: null },
-      { name: 'Iced Drinks', desc: 'Iced Latte, Iced Long Black', price: '$5.00', tag: 'COLD' },
-      { name: 'Alternatives', desc: 'Chai Latte, Hot Choc', price: '$4.50', tag: null },
-    ],
-  },
-  {
-    title: 'MILK OPTIONS',
-    items: [
-      { name: 'Dairy', desc: 'Full cream, Light, Lactose-free', price: '+$0.00', tag: null },
-      { name: 'Plant-Based', desc: 'Oat, Almond, Soy', price: '+$0.50', tag: 'VEGAN' },
-    ],
-  },
-];
-
 export default function MenuStack() {
+  const showPricing = content.settings.showPricing;
+
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -93,7 +67,7 @@ export default function MenuStack() {
         {/* Section header */}
         <div ref={headerRef} className="mb-20 md:mb-32 text-center">
           <span className="font-accent text-text-yellow text-xl md:text-2xl block mb-4">
-            Must Haves
+            {content.menu.subtitle}
           </span>
           <h2
             className="font-display font-bold uppercase text-offwhite"
@@ -103,12 +77,12 @@ export default function MenuStack() {
               lineHeight: 1.1,
             }}
           >
-            Our Menu
+            {content.menu.title}
           </h2>
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="w-12 h-px bg-text-yellow/40" />
             <span className="font-display text-xs uppercase tracking-widest text-offwhite/50">
-              Pressed fresh. Served hot.
+              {content.menu.tagline}
             </span>
             <div className="w-12 h-px bg-text-yellow/40" />
           </div>
@@ -116,7 +90,7 @@ export default function MenuStack() {
 
         {/* Menu cards - grid layout for accessibility */}
         <div className="space-y-8">
-          {MENU_CATEGORIES.map((category, catIndex) => (
+          {content.menu.categories.map((category, catIndex) => (
             <div
               key={category.title}
               ref={(el) => { cardsRef.current[catIndex] = el; }}
@@ -172,9 +146,11 @@ export default function MenuStack() {
                       </div>
                       <p className="text-offwhite/50 text-sm">{item.desc}</p>
                     </div>
-                    <span className="font-display font-bold text-text-yellow text-lg ml-4">
-                      {item.price}
-                    </span>
+                    {showPricing && (
+                      <span className="font-display font-bold text-text-yellow text-lg ml-4">
+                        {item.price}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -185,10 +161,10 @@ export default function MenuStack() {
         {/* Order CTA */}
         <div className="mt-20 text-center">
           <p className="text-offwhite/60 mb-6 font-body">
-            All tacos served on handmade flour or corn tortillas. Gluten-free available.
+            {content.menu.footerText}
           </p>
           <button className="btn-pill btn-yellow text-sm">
-            Order Online Now
+            {content.menu.buttonText}
           </button>
         </div>
       </div>

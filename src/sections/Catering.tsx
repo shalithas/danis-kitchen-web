@@ -2,15 +2,11 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Truck, Users, Calendar, Utensils } from 'lucide-react';
+import content from '../lib/content';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FEATURES = [
-  { icon: Truck, label: 'Food Truck Catering', desc: 'We roll up, fire up the griddle, and serve your guests fresh.' },
-  { icon: Users, label: 'Any Size Event', desc: 'From 20-person office lunches to 500-person festivals.' },
-  { icon: Calendar, label: 'Flexible Scheduling', desc: 'Book us for breakfast, lunch, dinner, or late-night service.' },
-  { icon: Utensils, label: 'Custom Menu', desc: 'Work with our team to craft the perfect menu for your event.' },
-];
+const FEATURE_ICONS = [Truck, Users, Calendar, Utensils];
 
 export default function Catering() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -77,29 +73,31 @@ export default function Catering() {
           className="font-serif text-text-yellow mb-6"
           style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 1.1 }}
         >
-          Book the Truck
+          {content.catering.title}
         </h2>
         <p className="text-offwhite/60 text-lg max-w-2xl mb-16">
-          Bring the Dani's Kitchen experience to your next event. Weddings, corporate mornings,
-          or private parties — we handle it all. Fresh coffee and pastries, served on-site.
+          {content.catering.description}
         </p>
 
         {/* Feature cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {FEATURES.map((feature, i) => (
-            <div
-              key={feature.label}
-              ref={(el) => { cardsRef.current[i] = el; }}
-              className="p-6 transition-colors duration-200 hover:bg-white/5"
-              style={{ border: '1px solid var(--text-yellow)' }}
-            >
-              <feature.icon className="w-8 h-8 text-text-yellow mb-4" />
-              <h4 className="font-display font-semibold text-offwhite uppercase tracking-wide text-sm mb-2">
-                {feature.label}
-              </h4>
-              <p className="text-offwhite/50 text-sm">{feature.desc}</p>
-            </div>
-          ))}
+          {content.catering.features.map((feature, i) => {
+            const Icon = FEATURE_ICONS[i];
+            return (
+              <div
+                key={feature.label}
+                ref={(el) => { cardsRef.current[i] = el; }}
+                className="p-6 transition-colors duration-200 hover:bg-white/5"
+                style={{ border: '1px solid var(--text-yellow)' }}
+              >
+                <Icon className="w-8 h-8 text-text-yellow mb-4" />
+                <h4 className="font-display font-semibold text-offwhite uppercase tracking-wide text-sm mb-2">
+                  {feature.label}
+                </h4>
+                <p className="text-offwhite/50 text-sm">{feature.desc}</p>
+              </div>
+            );
+          })}
         </div>
 
         {/* Enquiry form */}
@@ -110,37 +108,37 @@ export default function Catering() {
         >
           <div>
             <label className="font-display text-xs uppercase tracking-widest text-offwhite/50 block mb-2">
-              Your Name
+              {content.catering.form.labels.name}
             </label>
             <input
               type="text"
               className="w-full px-4 py-3 bg-transparent text-offwhite font-body focus:outline-none focus:ring-1 focus:ring-text-yellow border border-border"
-              placeholder="John Doe"
+              placeholder={content.catering.form.placeholders.name}
             />
           </div>
           <div>
             <label className="font-display text-xs uppercase tracking-widest text-offwhite/50 block mb-2">
-              Email
+              {content.catering.form.labels.email}
             </label>
             <input
               type="email"
               className="w-full px-4 py-3 bg-transparent text-offwhite font-body focus:outline-none focus:ring-1 focus:ring-text-yellow border border-border"
-              placeholder="john@example.com"
+              placeholder={content.catering.form.placeholders.email}
             />
           </div>
           <div>
             <label className="font-display text-xs uppercase tracking-widest text-offwhite/50 block mb-2">
-              Contact Number
+              {content.catering.form.labels.phone}
             </label>
             <input
               type="tel"
               className="w-full px-4 py-3 bg-transparent text-offwhite font-body focus:outline-none focus:ring-1 focus:ring-text-yellow border border-border"
-              placeholder="(555) 555-5555"
+              placeholder={content.catering.form.placeholders.phone}
             />
           </div>
           <div>
             <label className="font-display text-xs uppercase tracking-widest text-offwhite/50 block mb-2">
-              Event Date
+              {content.catering.form.labels.date}
             </label>
             <input
               type="date"
@@ -154,22 +152,22 @@ export default function Catering() {
               className="w-5 h-5 accent-text-yellow"
             />
             <label htmlFor="privateEvent" className="font-display text-sm text-offwhite/80 cursor-pointer">
-              This is a private event
+              {content.catering.form.labels.privateEvent}
             </label>
           </div>
           <div className="md:col-span-2">
             <label className="font-display text-xs uppercase tracking-widest text-offwhite/50 block mb-2">
-              More Details
+              {content.catering.form.labels.details}
             </label>
             <textarea
               rows={4}
               className="w-full px-4 py-3 bg-transparent text-offwhite font-body focus:outline-none focus:ring-1 focus:ring-text-yellow resize-none border border-border"
-              placeholder="Guest count, location, special requests..."
+              placeholder={content.catering.form.placeholders.details}
             />
           </div>
           <div className="md:col-span-2">
             <button type="submit" className="btn-pill btn-yellow text-sm">
-              Send Enquiry
+              {content.catering.form.buttonText}
             </button>
           </div>
         </form>
