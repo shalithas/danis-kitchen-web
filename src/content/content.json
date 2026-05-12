@@ -1,7 +1,7 @@
 {
   "settings": {
     "showPricing": false,
-    "showLocation": false
+    "showLocation": true
   },
   "brand": {
     "name": "Dani's Kitchen",
@@ -27,18 +27,18 @@
     ]
   },
   "location": {
-    "title": "Join the Hustle",
+    "title": "Join Dani's Kitchen",
     "todayLabel": "Today's Location",
     "schedule": [
-      { "day": "Monday", "time": "7:00 AM - 2:00 PM", "location": "Rainey Street (near Craft Pride)", "address": "61 Rainey St, Austin, TX 78701" },
-      { "day": "Tuesday", "time": "7:00 AM - 2:00 PM", "location": "South Congress (near Jo's Coffee)", "address": "1300 S Congress Ave, Austin, TX 78704" },
-      { "day": "Wednesday", "time": "7:00 AM - 2:00 PM", "location": "East 6th Street (near Whisler's)", "address": "1816 E 6th St, Austin, TX 78702" },
-      { "day": "Thursday", "time": "7:00 AM - 2:00 PM", "location": "Barton Springs (near Zilker Park)", "address": "2100 Barton Springs Rd, Austin, TX 78704" },
-      { "day": "Friday", "time": "7:00 AM - 3:00 PM", "location": "Rainey Street (Weekend Special)", "address": "61 Rainey St, Austin, TX 78701" },
-      { "day": "Saturday", "time": "8:00 AM - 3:00 PM", "location": "Farmers Market at Mueller", "address": "4209 Airport Blvd, Austin, TX 78722" },
-      { "day": "Sunday", "time": "CLOSED", "location": "Family Day", "address": "" }
+      { "day": "Monday", "time": "7:00 AM - 9:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
+      { "day": "Tuesday", "time": "7:00 AM - 9:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
+      { "day": "Wednesday", "time": "7:00 AM - 9:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
+      { "day": "Thursday", "time": "7:00 AM - 9:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
+      { "day": "Friday", "time": "7:00 AM - 9:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
+      { "day": "Saturday", "time": "7:00 AM - 7:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
+      { "day": "Sunday", "time": "CLOSED", "location": "Family Day", "address": "", "closed": true }
     ],
-    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220448.684064075!2d-97.8934853392578!3d30.30798271068981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1699900000000!5m2!1sen!2sus"
+    "mapUrl": "https://maps.google.com/maps?q=6+Handley+Cres,+Dandenong+VIC+3175,+Australia&t=&z=15&ie=UTF8&iwloc=&output=embed"
   },
   "menu": {
     "subtitle": "Must Haves",
@@ -72,7 +72,7 @@
         ]
       }
     ],
-    "footerText": "All tacos served on handmade flour or corn tortillas. Gluten-free available.",
+    "footerText": "Gluten-free available.",
     "buttonText": "Order Online Now"
   },
   "catering": {

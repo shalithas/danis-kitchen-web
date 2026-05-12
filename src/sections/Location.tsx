@@ -92,7 +92,7 @@ export default function Location() {
           ref={todayRef}
           className="mb-16 p-8 md:p-12"
           style={{
-            border: '2px solid #f6ee00',
+            border: todaySchedule.closed ? '2px solid #ff4444' : '2px solid #f6ee00',
             backgroundColor: '#030305',
           }}
         >
@@ -100,23 +100,31 @@ export default function Location() {
             <span className="font-display text-xs uppercase tracking-widest text-text-yellow">
               {content.location.todayLabel}
             </span>
-            <div className="w-2 h-2 rounded-full bg-primary-red animate-pulse" />
+            {!todaySchedule.closed && <div className="w-2 h-2 rounded-full bg-primary-red animate-pulse" />}
           </div>
-          <h3 className="font-display font-bold text-2xl md:text-4xl text-offwhite uppercase tracking-wide mb-2">
-            {todaySchedule.location}
-          </h3>
-          <div className="flex items-center gap-6 text-offwhite/70">
-            <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-text-yellow" />
-              {todaySchedule.time}
-            </span>
-            {todaySchedule.address && (
-              <span className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-text-yellow" />
-                {todaySchedule.address}
-              </span>
-            )}
-          </div>
+          {todaySchedule.closed ? (
+            <h3 className="font-display font-bold text-2xl md:text-4xl text-offwhite uppercase tracking-wide mb-2">
+              CLOSED
+            </h3>
+          ) : (
+            <>
+              <h3 className="font-display font-bold text-2xl md:text-4xl text-offwhite uppercase tracking-wide mb-2">
+                {todaySchedule.location}
+              </h3>
+              <div className="flex items-center gap-6 text-offwhite/70">
+                <span className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-text-yellow" />
+                  {todaySchedule.time}
+                </span>
+                {todaySchedule.address && (
+                  <span className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-text-yellow" />
+                    {todaySchedule.address}
+                  </span>
+                )}
+              </div>
+            </>
+          )}
         </div>
 
         {/* Schedule grid */}

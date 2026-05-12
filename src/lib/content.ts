@@ -17,6 +17,7 @@ export interface ScheduleItem {
   time: string;
   location: string;
   address: string;
+  closed?: boolean;
 }
 
 export interface Feature {

@@ -35,7 +35,7 @@ export default function Navigation() {
       <div className="flex items-center justify-between px-6 md:px-12 py-4">
         {/* Left nav */}
         <div className="hidden md:flex items-center gap-6">
-          {content.navigation.links.slice(0, 3).map((link) => (
+          {content.navigation.links.slice(0, 3).filter(link => link !== 'Location' || content.settings.showLocation).map((link) => (
             <button
               key={link}
               onClick={() => scrollTo(link.toLowerCase().replace(/\s+/g, '-'))}
