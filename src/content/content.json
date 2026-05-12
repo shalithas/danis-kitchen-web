@@ -35,7 +35,7 @@
       { "day": "Wednesday", "time": "7:00 AM - 9:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
       { "day": "Thursday", "time": "7:00 AM - 9:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
       { "day": "Friday", "time": "7:00 AM - 9:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
-      { "day": "Saturday", "time": "7:00 AM - 7:00 AM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
+      { "day": "Saturday", "time": "7:00 AM - 2:00 PM", "location": "Handley Cres (next to Midas)", "address": "6 Handley Cres, Dandenong VIC 3175" },
       { "day": "Sunday", "time": "CLOSED", "location": "Family Day", "address": "", "closed": true }
     ],
     "mapUrl": "https://maps.google.com/maps?q=6+Handley+Cres,+Dandenong+VIC+3175,+Australia&t=&z=15&ie=UTF8&iwloc=&output=embed"
