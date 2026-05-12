@@ -193,9 +193,14 @@ export default function Footer() {
           <p className="text-offwhite/30 text-xs">
             &copy; {new Date().getFullYear()} {content.brand.name}. All rights reserved.
           </p>
-          <p className="text-offwhite/30 text-xs">
-            {content.footer.copyright}
-          </p>
+          <a
+            href="https://www.synova.au/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-offwhite/30 text-xs hover:text-text-yellow transition-colors duration-200"
+          >
+            Powered by Synova
+          </a>
         </div>
       </div>
     </footer>
